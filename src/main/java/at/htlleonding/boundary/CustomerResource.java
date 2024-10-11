@@ -1,7 +1,6 @@
 package at.htlleonding.boundary;
 
 import at.htlleonding.repository.CustomerRepository;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -19,9 +18,9 @@ public class CustomerResource {
 
     @GET
     @Path("health")
+    @Produces(MediaType.TEXT_PLAIN)
     public String healthCheck() {
         return "CustomerResource is alive!";
     }
-
 
 }

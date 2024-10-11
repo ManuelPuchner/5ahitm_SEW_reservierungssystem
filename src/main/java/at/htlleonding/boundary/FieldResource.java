@@ -18,7 +18,9 @@ public class FieldResource {
 
     @GET
     @Path("health")
+    @Produces(MediaType.TEXT_PLAIN)
     public String healthCheck() {
         return "FieldResource is alive!";
     }
+
 }
