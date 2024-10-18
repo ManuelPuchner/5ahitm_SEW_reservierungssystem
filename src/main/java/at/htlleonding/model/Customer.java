@@ -2,10 +2,8 @@ package at.htlleonding.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-public class Customer  {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "c_id", nullable = false)
@@ -119,4 +117,21 @@ public class Customer  {
         this.houseNo = houseNo;
     }
     //endregion
+
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", street='" + street + '\'' +
+                ", zip='" + zip + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", houseNo='" + houseNo + '\'' +
+                '}';
+    }
 }
