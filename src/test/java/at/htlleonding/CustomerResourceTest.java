@@ -28,7 +28,8 @@ public class CustomerResourceTest {
     @BeforeAll
     static void setup() {
         c = new Customer();
-        c.setName("John Doe 123");
+        c.setFirstname("John");
+        c.setLastname("Doe");
         c.setEmail("johndoe@gmail.com");
         c.setPhone("+43 677 1234567890");
         c.setPassword("password");
@@ -58,7 +59,8 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(Response.Status.CREATED.getStatusCode())
                 .body("id", is(1),
-                        "name", is("John Doe 123"),
+                        "firstname", is("John"),
+                        "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),
                         "phone", is("+43 677 1234567890"),
                         "password", is("password"),
@@ -80,7 +82,8 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
                 .body("id", is(1),
-                        "name", is("John Doe 123"),
+                        "firstname", is("John"),
+                        "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),
                         "phone", is("+43 677 1234567890"),
                         "password", is("password"),
@@ -94,10 +97,12 @@ public class CustomerResourceTest {
     @Order(3)
     @Test
     public void testUpdateCustomer() {
-        c.setName("Jane Doe 123");
+        c.setFirstname("Jane");
+        c.setLastname("Doe");
         Mockito.doAnswer(invocationOnMock -> {
             Customer cust = invocationOnMock.getArgument(0);
-            cust.setName("Jane Doe 123");
+            cust.setFirstname("Jane");
+            cust.setLastname("Doe");
             return cust;
         }).when(customerRepository).update(any(Customer.class));
 
@@ -109,7 +114,8 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
                 .body("id", is(1),
-                        "name", is("Jane Doe 123"),
+                        "firstname", is("Jane"),
+                        "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),
                         "phone", is("+43 677 1234567890"),
                         "password", is("password"),

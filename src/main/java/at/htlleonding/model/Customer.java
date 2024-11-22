@@ -9,8 +9,11 @@ public class Customer {
     @Column(name = "c_id", nullable = false)
     private Long id;
 
-    @Column(name = "c_name", nullable = false)
-    private String name;
+    @Column(name = "c_firstname", nullable = false)
+    private String firstname;
+
+    @Column(name = "c_lastname", nullable = false)
+    private String lastname;
 
     @Column(name = "c_email", nullable = false)
     private String email;
@@ -21,19 +24,19 @@ public class Customer {
     @Column(name = "c_password", nullable = false)
     private String password;
 
-    @Column(name = "c_street", nullable = false)
+    @Column(name = "c_street")
     private String street;
 
-    @Column(name = "c_zip", nullable = false)
+    @Column(name = "c_zip")
     private String zip;
 
-    @Column(name = "c_city", nullable = false)
+    @Column(name = "c_city")
     private String city;
 
-    @Column(name = "c_country", nullable = false)
+    @Column(name = "c_country")
     private String country;
 
-    @Column(name = "c_houseno", nullable = false)
+    @Column(name = "c_houseno")
     private String houseNo;
 
     //region Getter and Setter
@@ -45,12 +48,20 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -123,7 +134,8 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
