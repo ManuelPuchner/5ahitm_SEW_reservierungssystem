@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 
 import java.net.URI;
+import java.util.List;
 
 @Path("api/customer")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -59,6 +60,12 @@ public class CustomerResource {
     public Response deleteCustomer(@PathParam("id") Long id) {
         customerRepository.deleteById(id);
         return Response.noContent().build();
+    }
+
+    @GET
+    @Path("list")
+    public List<Customer> listCustomers() {
+        return customerRepository.listAll();
     }
 
 }

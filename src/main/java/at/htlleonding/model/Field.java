@@ -24,7 +24,7 @@ public class Field {
     private LocalTime closeTime = LocalTime.of(20, 0);
 
     @JoinColumn(name = "f_type", nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private FieldType type;
 
     //region Getter and Setter
