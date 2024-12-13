@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 
 @Entity
 public class Customer {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "c_id", nullable = false)
-    private Long id;
+    private String id;
 
     @Column(name = "c_firstname", nullable = false)
     private String firstname;
@@ -40,11 +40,11 @@ public class Customer {
     private String houseNo;
 
     //region Getter and Setter
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

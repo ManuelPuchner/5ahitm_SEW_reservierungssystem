@@ -36,7 +36,7 @@ public class CustomerResource {
         customerRepository.persist(customer);
         URI uri = uriInfo
                 .getAbsolutePathBuilder()
-                .path(Long.toString(customer.getId()))
+                .path(customer.getId())
                 .build();
         return Response.created(uri).entity(customer).build();
     }
@@ -57,8 +57,8 @@ public class CustomerResource {
     @DELETE
     @Path("{id}")
     @Transactional
-    public Response deleteCustomer(@PathParam("id") Long id) {
-        customerRepository.deleteById(id);
+    public Response deleteCustomer(@PathParam("id") String username) {
+        //customerRepository.deleteById(username);
         return Response.noContent().build();
     }
 

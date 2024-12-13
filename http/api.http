@@ -43,3 +43,21 @@ Content-Type: application/json
 ###
 
 DELETE {{BASE_URL}}/api/customer/{{cust_id}}
+
+###
+
+POST {{BASE_URL}}/api/auth/login
+Content-Type: application/json
+
+{
+  "userId": "johndoe",
+  "password": "password"
+}
+> {% client.global.set("token", response.body.token); %}
+
+
+###
+
+GET http://localhost:8080/api/fields/list
+Accept: application/json
+Authorization: Bearer {{token}}

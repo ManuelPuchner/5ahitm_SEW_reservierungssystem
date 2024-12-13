@@ -45,11 +45,11 @@ public class CustomerResourceTest {
     public void testCreateCustomer() {
         Mockito.doAnswer(invocationOnMock -> {
             Customer cust = invocationOnMock.getArgument(0);
-            cust.setId(1L);
+            cust.setId("1");
             return null;
         }).when(customerRepository).persist(any(Customer.class));
         Mockito.when(customerRepository.isPersistent(any(Customer.class))).thenReturn(true);
-        c.setId(1L);
+        c.setId("1");
 
         given()
                 .contentType(ContentType.JSON)
@@ -58,7 +58,7 @@ public class CustomerResourceTest {
                 .when().post()
                 .then()
                 .statusCode(Response.Status.CREATED.getStatusCode())
-                .body("id", is(1),
+                .body("id", is("1"),
                         "firstname", is("John"),
                         "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),
@@ -81,7 +81,7 @@ public class CustomerResourceTest {
                 .when().get("/1")
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
-                .body("id", is(1),
+                .body("id", is("1"),
                         "firstname", is("John"),
                         "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),
@@ -113,7 +113,7 @@ public class CustomerResourceTest {
                 .when().put()
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
-                .body("id", is(1),
+                .body("id", is("1"),
                         "firstname", is("Jane"),
                         "lastname", is("Doe"),
                         "email", is("johndoe@gmail.com"),

@@ -2,6 +2,7 @@ package at.htlleonding.boundary;
 
 import at.htlleonding.model.Field;
 import at.htlleonding.repository.FieldRepository;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -57,6 +58,7 @@ public class FieldResource {
 
     @GET
     @Path("/list")
+    @RolesAllowed("admin")
     public List<Field> listFields() {
         return fieldRepository.listAll();
     }
